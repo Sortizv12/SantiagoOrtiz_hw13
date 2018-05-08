@@ -23,16 +23,19 @@ def finish_game(lista,choice,change):
 		for i in range(len(lista)):
 			if(i!=choice and lista[i]!='GOAT_MONTY'):
 				return lista[i]
+#Se crean las listas donde se guardaran los resultados de los juegos
 cambia=[]
 no_cambia=[]
 
+#Se realizan los juegos
 for i in range(1000):
 	eleccion=choose_door()
 	cambia.append(finish_game(reveal_door(sort_doors(),eleccion),eleccion,True))
 	no_cambia.append(finish_game(reveal_door(sort_doors(),eleccion),eleccion,False))
+
+#Contadores para saber cuantas veces se gano el juego
 n=0
 m=0
-
 for i in range(1000):	
 	if cambia[i]=='car':
 		n+=1
